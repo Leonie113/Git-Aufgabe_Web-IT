@@ -1,0 +1,157 @@
+Web-IT~02.10.19
+
+Anwendungsorientierte Schichten:
+ Dienstleistungen, die die Anwendung nutzen können
+
+
+Transportorientierte Schichten:	
+1.	Physical Layer
+2.	Verbindungsschicht
+3.	Netzwerkschicht
+4.	Transportschicht
+
+
+Netzanwendungen: Struktur
+•	Anwendungen kommunizieren über Kommunikationssystem
+?	Kommunikation ( via TCP und UDP)
+TCP: transport connection protocol Verbindungskommunikation
+UDP: user data protocol
+•	Beide nutzen IP, somit ersetzbar
+Client/Server-Paradigma
+•	Anwendungen bestehen aus 2 Teilen: Client und Server
+•	Client: Baut den Kontakt mit dem Server auf, fordert Dienst an (Client im Browser, Email)
+•	Server: 
+Peer-to-peer-Paradigma
+•	Anwendungungen bestehen aus gleichberechtigten Teilen (Peers od. Agenten)
+•	Bei dem Modell hat man keinen zentralen Server
+•	Größerer Management Aufwand wegen sehr vielen Peer-Peer-Assoziationen
+Anwendungen und Anwendungsprotokolle:
+•	Anwendungsprozesse werden in Hosts ausgeführt
+•	Sie tauschen Anwendungsnachrichten aus (z.B. Email, WWW)
+•	Anwendungsprotokolle legen Syntax und Semantik der Anwendungsnachrichten fest
+•	Legen Ablauf des Nachrichtenaustauschs fest
+hier Datentransfer über http (Hypertext Transfer Protocol) ? benutzt i.d.R. TCP
+Schnittstelle zum Transportsystem:
+•	In Java keine Dienstzugangspunkte, sondern Sockets
+?	Ein Anwendungsprozess kommuniziert über Sockets
+•	Kommunikation durch Abgae bzw. Abholung von Nachrichten an der Tür
+•	Programmierschnittstelle: API
+Adressierung:
+•	Um Nachrichten einem Prozess anzuordnen wird eine eindeutige Adresse( IP-Adresse)
+•	Jeder Host hat eine eindeutige IP-Adresse
+?	Damit sind aber noch keine Prozesse adressierbar
+?	Paar aus IP-Adresse für den Rechner und Port-Nummer für die Anwendung
+•	Adresse bei http’s sind URL
+•	FQDN als „Telefonbuch“ zum Übersetzen der IP (DNS)
+•	System nutzt intern IP-Adresse
+•	IP-Adresse der Version 4 232
+•	IP-Adresse der Version 6 
+•	http-Server: TCP-Port 80
+•	SMTP-Mail-Server: TCP-Port 25
+•	POP3-Mail-Server: TCP-Port 110 stellt Mails zur Verfügung
+•	Echo-Server: TCP-Port /UDP-Port 7
+•	Adressen auf Schicht 4: Portnummern
+?	Verbindungsorientierte kommunikation (TCP)
+?	Verbindungslose Kommunikation (UDP)
+Anwendungsanforderungen an Transportdienst:
+•	Einige Anwendungen erfordern hohe Zuverlässigkeit (z.B: Überweisungen)
+•	Andere können einen gewissen Datenverlust verkraften (z.B. Audio-Übertragungen ? kriegt man nicht mit)
+•	Einige Anwendungen verlangen die Einhaltung von Zeitschranken 
+•	Einige Anwendungen benötigen eine gewisse minimale Bandbreite (z.B.Multimedia)
+•	Andere (elastische) Anwendugen nutzen die Bandbreite, die verfügbar ist (z.B. Dateitransfer)
+•	Manche haben hohen Sicherheitsanforderungen (z.B. E-Banking)
+•	Andere nutzen nur allgemein einsehbare Daten (z.B. Fernsehen über Internet)
+•	Interaktion mit anderen Anwendungen
+•	Manche Anwendungen sollen andere nicht beeinflussen (z.B. Monitoring)
+Internet-transport:
+•	TCP: verbindungsorientiert, zuverlässiger Transport, Flusskontrolle, Überlastkontrolle, kein Timing, keine garantierte Bandbreite
+•	UDP: nicht verbindungsorientiert, unzuverlässsiger Transport, keine Fluss- und Überlastkontrolle, kein Timing, keine garantierte Bandbreite
+Command:
+Ping…: Verbindungsaufbau
+Ipconfig: Nachfragen der eigenen IP
+Tracert…: Übersicht der Zwischensysteme
+WWW:World Wide Web
+•	Anwendungsprotokoll: http
+•	Browser fordert Objekte an, Server stellt sie bereit
+•	http verwendet TCP zur Umsetzung
+•	http-Pakete werden ausgetauscht
+•	TCP-Verbindung wird verwendet
+•	Server speichert keine Informationen über vorausgegangene Verbindungen
+WWW: http-PDUs
+•	Nachrichten sind Request-Nachrichten oder Response-Nachrichten 
+•	Simple Request: METHOD URI <crfl>
+•	Full Request: METHOD URIHTTP/1.1 <crfl>
+•	Method: z.B. GET, Post
+Response-Status-Codes
+200: OK
+301: Moved Permanently
+400: Bad Request
+404: Not Found
+505: HTTP Version Not Supported 
+WWW: Caching
+•	Caching sin Zwischenspeicher, z.B. im Browser
+•	Speichert Webseiten zwischen
+•	Wenn diese Seite nochmal aufgerufen wird, dann wird diese aus dem Cache bedient 
+•	Proxy-Server werden angesprochen an Stelle des eigenen Servers
+WWW: Authentifikation
+•	Client gibt ID an und Beweis, dafür, dass er dies auch ist
+WWW: Autorisierung
+•	Zugriff im Client nur für die ihm zugewiesene Privilegien
+WWW: Zustandsspeicherung mit Cookies
+•	Viele Webseiten nutzen Cookies
+•	Cookie-Zeile im Header der http-Response Nachricht
+•	Cookie-Zeile in der http-Request-Nachricht
+•	Cookie-Datei auf dem Benutzerrechner, vom Browser verwaltet
+•	Datenbank mit Cookies auf Server-Seite
+E-Mail: Protokolle
+•	3 Phasen: Handshake, Nachrichtentransfer, Beenden der Verbindung
+•	Benutzt TCP
+•	POP/IMAP 
+
+Aufgabe:
+•	Text: lesen und verstehen
+•	Kleiner Text schreiben, der die Hintergründe dieses Texts erleuchten(Recherche)? Grundidee
+•	Entwicklerwerkzeuge: firefox(Laufzeitanalyse/Netzwerkanalyse)
+Chrome(Performance/Network tool)
+?2 der Entwicklerwerkzeuge anschauen (recherchieren, Werkzeug verstehen)
+•	Praktikum entwickeln in 3er Gruppe
+•	Werkzeug installieren git-scm.com/download
+
+ 
+
+Was ist der Unterschied zwischen URL und URI?
+URL= Uniform Resource Locator 
+URI = Uniform Resource Identifier
+Jede Adresse ist eine URLund URI
+URI ist eine „URL 2.0“
+Eine URL kann man im Webbrowser eingeben und wird zum Ziel geleitet (Location ansteuern), mit URI manchmal nicht möglich
+URI identifiziert nicht den Shop (Amazon) sondern das Buch
+URL zählt als veraltet
+Unterschied zwischen URL/URI/URN
+Mit URN kann man einer Resource einen dauerhaft gültigen Namen zuweisen, der die Ressource damit eindeutig identifizierbar macht
+URI kann man URL/URN einordnen 
+URL zeigt an wo etwas ist; URN beschreibt was es ist
+URL/URN ist ein URI, aber nicht andersrum
+•	t3n.de – URI
+•	https://t3n.de – URL (http zeigt euch wo die Ressource ist)
+•	ftp://t3n.de – URL (ftp zeigt euch wo die Ressource ist)
+•	urn:isbn:3827370191 – URN (eindeutige Indentifikation des Buches „Moderne Betriebssysteme“ von Andrew S. Tanenbaum)
+http ist ein zustandsloses Protokoll-Defintion
+Zustandslosigkeit beschreibt Eigenschaft eines Protokolls/Systems, mehrere Anfragen werden als voneinander unabhängige Transaktionen behandelt
+Jede Interaktionsanfrage muss vollständig auf der Grundlage der damit verbundenen Informationen bearbeitet werden (z.B. IP). Mit Cookies trotzdem Zustandsdaten.
+Auf welchen Schichten / Ebenen des TCP/IP-Schichtenmodells gibt es welche Adressen?
+Das Internet Protocol (IP) ist auf der Vermittlungsschicht (Schicht 3) des OSI-Schichtenmodells angeordnet. Das Transmission Control Protocol (TCP) ist auf der Transportschicht (Schicht 4) des OSI-Schichtenmodells angeordnet. Innerhalb des DoD-Schichtmodells bildet TCP/IP das Rückgrad für alle Kommunikationsverbindungen.
+Wie erfolgt die Umsetzung zwischen IP-Adressen und absoluten Adressen in Textform (FQDNs)?  Ist es immer eine 1:1-Beziehung?
+NAT wird in Source-NAT (SNAT; deutsch: „Quellen-NAT“) und Destination-NAT (DNAT; deutsch: „Ziel-NAT“) unterschieden. Beim Source-NAT wird die Adresse des verbindungsaufbauenden Computers (Quelle) umgeschrieben. Beim Destination-NAT ist es die Adresse des angesprochenen Computers (Ziel), die umgeschrieben wird.
+Welche Header in HTTP-Requests und HTTP-Responses sind Pflicht?  Welche sind üblich?
+Namen(Groß/Kleinschreibung), Doppelpunkt und dem Wert ohne Zeilenumbrüche
+Request header: Header die weitere Informationen über die angeforderte Ressource oder den Client selbst enthalten.
+Response header: Header mit weiteren Informationen zur Antwort, wie etwa ihres Orts oder den Server selbst (Name und Version etc.)
+Welche Organisation setzt die Standards für das Web und wo kann man diese nachlesen / finden?  Was ist mit HTTP?  Gibt es dafür jemand anderes / weiteres?
+W3C(World Wide Web Consortium); ISO((International Organization for Standardization); ANSI (American National Standards Institute)
+The Unicode Consortium, The Internet Engineering Task Force; ECMA (European Association for Standardizing Information and Communication Systems)
+http und HTTPS 
+
+
+
+
