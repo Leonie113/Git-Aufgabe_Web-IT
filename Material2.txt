@@ -1,0 +1,165 @@
+Web-IT~01.10.19
+
+Rechnernetze und verteilte Systeme
+•	Rechnernetz: durch Telekommunikationssystem verbundene Rechnerknoten
+•	Telekommunikationssystem: System, das Teilnehmern Telekommunikationsdienste anbietet (meistens durch Rechnernetz implementiert)
+•	Verteiltes Netz: Anwendung, deren Komponenten sich an verschiedenen Orten befinden, Komponenten sind in Rechnernetz installiert, werden lokal von den Rechnerknoten ausgeführt und kommunizieren miteinander mit Hilfe eines Telekommunikationssystems.
+Besonderheiten verteilter Systeme
+•	Kommunikation: unzuverlässig, langsam, teuer
+•	Lose Kopplung: Kommunikation selten, Synchronisation schwach, Fehlertoleranz
+•	Nebenläufigkeit (Concurrency): weitgehend unabhängige Fortschritte
+•	Dezentrale Kontrolle: weitgehende Autonomie, lokale Kontrolle auf Basis partieller Schichten
+•	Vollständige Sicht des globalen Systemzustandswird vermieden, da das zu teuer ist (Einfrieren)
+Dienstleistende Systeme:
+•	Instanzen: Menge von Dienstnehmern, Diensterbringer (offenes Subsystem)
+•	Kommunikation: vertikale Kommunikation(Abwicklung von Dienstleistungen zwischen Dienstnehmer und Dienstleister), horizontale Kommunikation (zwischen Dienstnehmern)
+•	Kommunikationssysteme: in der Zeit Datenhaltungssystem, im Raum Telekommunikationssystem (Dienstleistungen dienen dem Nachrichtenaustausch zwischen Dienstnehmern, Diensterbringer interpretiert Nachrichten nicht)
+Kommunikationsdienst:
+•	Bietet Teilnehmern Dienstleistungen zum Nachrichtenaustausch an
+?	Partneradressierung
+?	Datagramme (verbindungslose Kommunikation z.B. UDP)
+?	Verbindungsorientierte Kommunikation (z.B. TCP)
+?	Zwei- /Mehrpartner-Kommunikation (Uni/Multi/Broadcast)
+?	Richtung (Simplex, Duplex, halbduplex)
+Kommunikationsdienst-Sichten:
+•	Statische Sicht: Die Dienstschnittstelle, ist gegliedert in Dienstzugangspunkte, welchen Dienstadressen zugeordnet sind
+•	Dynamische Sicht: an der Dienstschnittstelle treten im Verlauf der Zeit Ereignisse auf: Die Anforderung und Ausführung einer Dienstleistung repräsentiert sich in zusammengehörigen Dienststimuli und Dienstreaktionen
+Kommunikation und Kontext- Datagramme und Verbindungen
+•	Kommunikation ohne Kontext-Datagram: Dienst enthält alle benötigten Informationen z.B. Brief, Telegramm, UDP-Datagramm
+•	Kommunikation im Kontext – Verbindung: Verbindung wird aufgebaut, Kommunikation entlang der Verbindung, Verbindung wird abgebaut z.B. Telefon, TCP-Verbindung
+Protokolle: Defintion
+•	Ein Protokoll ist eine Menge von Regeln und Formaten (semantisch und syntaktisch), die das Kommunikationsverhalten von Instanzen zur Ausführung von Funktionen regelt (ISO 7498)
+•	Alle Kommunikationsaktivitäten im Internet werden von Protokollen bestimmt
+•	Protokollstandards ermöglichen die Offenheit des Internets für Komponenten unterschiedlichster Bauart
+•	Ein Kommunikationsprotokoll definiert das Kommunikationsverhalten von Instanzen, welche einen Basis-Kommunikationsdienst nutzen, um einen (höherwertigen) ZielKommunikationsdienst zu erbringen. Es wird definiert über
+?	Zieldienst
+?	Basisdienst
+?	Instanzverhalten
+?	PDU-Formate
+Internet:
+•	Millionen vernetzter Computer (Endsysteme, Hosts)
+?PCs, Server
+?Toaster, Cola-Automaten
+•	Kommunikationsleitungen
+? Kupfer-, Glasfaserleitungen,
+?	Funk, Satellitenfunk 
+•	Transitsysteme (Router) leiten Daten weiter
+Internet-Struktur:
+•	Netz-Peripherie
+?	End-Systeme (PCs, Workstations, Server)
+•	Netz-Kern
+?	Transitsysteme (Router, ein Netz von Netzen) 
+?	Subnetze
+?	Teilnetze 
+•	Übertragungsmedien
+?	Kommunikationsleitungen
+Internet-Peripherie:
+•	End -Systeme (Hosts)
+? beherbergen Applikationen und Server -Programme
+?	sind Endpunkte der Verbindung
+•	Client -Server -Modell 
+?	Client stellt Anfragen und erhält Service 
+?	Server ist ”immer“ verfügbar 
+•	Peer -To -Peer -Modell 
+?	keine dedizierten Server z. B. KaZaA
+Internet-Datentransportdienste:
+Ziel: Datentransfer zwischen End-Systemen
+•	TCP – Transmission Control Protocol [RFC793] verbindungsorientiert 
+? Zuverlässiger Datentransfer in richtiger Reihenfolge
+•	UDP – User Datagram Protocol [RFC768] verbindungslos / Datagramm
+ ? Unzuverlässiger Datentransfer
+Internet-Kern:
+Geflecht von verbundenen Routern~ Wie werden die Daten durch das Netz übertragen? 
+•	Leitungsvermittlung (circuit switching) 
+?	pro Verbindung eine Leitung (Telefonnetz) 
+•	Paketvermittlung (packet switching) – Daten werden in einzelnen Paketen durch das Netz geschickt (Briefpost) 
+Netz-Kerne (allgemein): Multiplexing
+•	Benutzung einer Verbindungsleitung durch mehrere Verbindungen 
+?	Die Netz-Resource (z. B. Bandbreite) wird aufgeteilt. 
+?	Die ”Teile“ werden einzelnen Verbindungen zugeteilt.
+?	Keine Mitbenutzung unbenutzer ”Teile“ durch andere Verbindungen.
+•	Die Aufteilung der Bandbreite erfolgt durch 
+?	Frequenzmultiplexing (frequency division) oder 
+?	Zeitmultiplexing (time division)
+Netz-Kerne (allgemein): Paketvermittlung
+•	Der Datenstrom wird in separat zu transportierende Pakete aufgeteilt
+?	Mehrere Verbindungen teilen sich eine Leitung. 
+?	Jedes Paket nutzt die volle Bandbreite. 
+?	Die Ressourcen werden nach Bedarf genutzt. 
+?	Keine garantierte Bandbreite für den Datenstrom. – Die Summe der benötigten Ressourcen kann die Summe der vorhandenen übersteigen. 
+?	Pakete im Puffer warten auf freie Ressource (Store and Forward – Prinzip)
+Netz-Kerne (allgemein):Routing
+•	Datagramm-Netz 
+?	Die Zieladresse bestimmt den nächsten Hop. 
+?	Verschiedene Pakete desselben Datenstroms können unterschiedliche Wege nehmen. 
+•	Virtual-Circuit Netz (VC, virtuelles Leitungsnetz) 
+?	Jedes Paket hat eine Marke (Tag), die den nächsten Hop bestimmt.
+?	Pfad wird beim Verbindungsaufbau festgelegt. 
+?	Router speichern Verbindungsdaten
+Physikalische Medien:
+•	Verdrillte Adernpaare (geschirmt, ungeschirmt) 
+•	Koaxialkabel 
+•	Glasfaser 
+•	Funkkanäle (erdgebunden, Satelliten)
+Verzögerung in Paketschirmen:
+•	Knoten-Verarbeitung 
+•	Warteschlangen-Aufenthalt 
+•	Übertragungsverzögerung (Paketlänge und Übertragungsrate)
+•	Signalverzögerung (Ausbreitungsgeschwindigkeit der Signale in Medium)
+Verzögerung-Bandbreiten-Produkt
+•	Relative Bedeutung von Nachrichtenlaufzeit und Bandbreite 
+?	für kurze Nachrichten (z.B. 1 Byte) ist die Laufzeit (z.B. 1 ms gegenüber 300 ms) wichtiger als die Bandbreite (z.B. 1 Mbps gegenüber 1 Gbps). 
+?	für lange Nachrichten (z.B. 600 Mbyte) ist die Bandbreite wichtiger als die Laufzeit.
+•	Produkt aus Bandbreite x Laufzeit 
+?	Es entspricht der Datenmenge, die sich im Transit befinden kann
+•	Beispiel 
+?	Bei 100 ms Laufzeit und 45 Mbps Bandbreite können sich bis zu 560 Kbyte Daten im Transit befinden
+Schichtenmodelle:
+•	ISO/OSI 
+?	Kommunikation Offener Systeme – Basis-Referenzmodell 
+?	allgemeines Modell, das sich auf die logische Architektur konzentriert (Welche Funktionen können in welchem Zusammenhang in einer Kommunikation auftreten?) 
+?	(ISO 7498) 
+•	TCP/IP 
+?	Internet-Protokollstack 
+?	Für (beinahe) alle Systeme implementiert. 
+?	(RFCs, IEEE-Normen)
+ISO/OSI-Basisrefernzmodell:Schichten
+•	Anwendungsschicht (Application Layer) 
+?	höchste Ebene, stellt die Kommunikationsdienstleistungen bereit, die direkt von einer Anwendung benötigt werden 
+?	Beispiel: „Übertrage das Kommando eine Datei zu öffnen“
+•	Darstellungsschicht (Presentation Layer) 
+?	reicht die Dienstleistungen des Session-Dienstes weiter 
+?	stellt Dienstleistungen bereit, mit denen sich Anwendungsprozesse über die Syntax der Nachrichten abstimmen können
+•	Kommunikationssteuerungsschicht (Session Layer) 
+?	bietet Dienstleistungen an, die zur Eröffnung, Durchführung und Beendigung einer Kommunikationsbeziehung (Session) nötig sind
+?	Dienstleistungen zur Realisierung anwendungsnaher Fehlerbehandlungsmaßnahmen: Synchronisation, Wiederaufsetzen, Stornieren, Unterbrechen, Wiederaufnehmen
+•	Transportschicht (Transport Layer) 
+?	erweitert Endsystemverbindungen (Rechner–Rechner) zu Anwenderverbindungen (Anwender–Anwender) 
+?	Anwender = Anwendungsprozesse 
+?	behandelt Ende-zu-Ende-Qualitätsaspekte 
+•	Vermittlungsschicht (Network Layer) 
+?	unterstützt beliebige Konnektivität im Netz 
+•	Sicherungsschicht (Data Link Layer) 
+?	stellt zuverlässige Links zur Verfügung 
+?	Flußkontrolle, Fehlererkennung und -korrektur 
+•	Bitübertragungsschicht (Physical Layer) 
+?	stellt ungesicherte Links für die Übertragung von Bitfolgen zur Verfügung
+TCP/IP Protokollstapel
+•	application layer
+?	unterstützt verteilte Applikationen (umfasst die ISO/OSI-Schichten 5, 6 und 7) 
+?	Anwendungsprotokolle FTP, SMTP, HTTP, SNMP, DNS, … 
+•	transport layer 
+?	Datenübertragung von Anwendung zu Anwendung (Port zu Port)
+?	Transportprotokolle TCP, UDP 
+•	network layer 
+?	transportiert (routet) Datagramme von Endsvstem zu Endsystem
+?	Internet-Protokoll IP, RoutingProtokolle 
+•	data link layer 
+?	Datentransfer zwischen benachbarten Systemen 
+?	PPP, Ethernet, … 
+•	physical layer 
+?	Bitübertragung auf der Leitung oder im Funkkanal 
+?	RS-232, Ethernet, …
+
+
+ 
